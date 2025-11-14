@@ -1,9 +1,10 @@
+from datetime import date
 from pydantic import BaseModel
-from fatetime import date
 
 class TaskBase(BaseModel):
     title: str
-    date: date | None = None
+    date: date | None = None   # ← OK
+
 class TaskCreate(TaskBase):
     pass
 
@@ -13,4 +14,3 @@ class Task(TaskBase):
 
     class Config:
         orm_mode = True
-
